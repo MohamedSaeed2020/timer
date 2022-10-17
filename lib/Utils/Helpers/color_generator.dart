@@ -5,7 +5,7 @@ import 'package:timer/Constants/colors.dart';
 class ColorGenerator {
   int random = Random().nextInt(MyColors.challengeColors.length);
 
-  Color generatecolor(int index) {
+  Color generateColor(int index) {
     if (index < MyColors.challengeColors.length) {
       return MyColors.challengeColors[index];
     } else {

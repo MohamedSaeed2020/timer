@@ -9,8 +9,7 @@ class MyAwesomeDialog {
       BuildContext context, int challengeDays) {
     return AwesomeDialog(
         dialogType: DialogType.success,
-        animType: AnimType.scale,
-        title: 'The Challenge is won!',
+        animType: AnimType.topSlide,
         btnOkOnPress: () {},
         context: context,
         body: Padding(

@@ -105,7 +105,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     Container(
                       width: double.infinity,
                       decoration: BoxDecoration(
-                        color: Theme.of(context).scaffoldBackgroundColor,
+                        color: MyColors.black,
                         borderRadius: BorderRadius.only(
                           topLeft: Radius.circular(
                             SizeConfig.textMultiplier * 4,
@@ -127,34 +127,33 @@ class _HomeScreenState extends State<HomeScreen> {
                             style: GoogleFonts.poppins(
                               fontSize: SizeConfig.textMultiplier * 2.3,
                               fontWeight: FontWeight.bold,
-                              color: MyColors.deepBlue,
+                              color: MyColors.white,
                             ),
                           ),
                           SizedBox(height: SizeConfig.heightMultiplier * 3),
                           Expanded(
-                              child: provider.challenges.isEmpty
-                                  ? Center(
-                                      child: Lottie.asset(
-                                        'assets/json/working-man.json',
-                                        width: SizeConfig.widthMultiplier * 100,
-                                        height:
-                                            SizeConfig.widthMultiplier * 100,
-                                        fit: BoxFit.contain,
-                                      ),
-                                    )
-                                  : ListView.builder(
-                                      physics: const BouncingScrollPhysics(),
-                                      itemCount: provider.challenges.length,
-                                      itemBuilder: (context, index) {
-                                        return ChallengeItem(
-                                            index: index,
-                                            challengeDays: provider
-                                                .challenges[index]
-                                                .challengeDays,
-                                            date: provider.challenges[index]
-                                                .finishingDate);
-                                      },
-                                    ))
+                            child: provider.challenges.isEmpty
+                                ? Center(
+                                    child: Lottie.asset(
+                                      'assets/json/working-man.json',
+                                      width: SizeConfig.widthMultiplier * 100,
+                                      height: SizeConfig.widthMultiplier * 100,
+                                      fit: BoxFit.contain,
+                                    ),
+                                  )
+                                : ListView.builder(
+                                    physics: const BouncingScrollPhysics(),
+                                    itemCount: provider.challenges.length,
+                                    itemBuilder: (context, index) {
+                                      return ChallengeItem(
+                                          index: index,
+                                          challengeDays: provider
+                                              .challenges[index].challengeDays,
+                                          date: provider
+                                              .challenges[index].finishingDate);
+                                    },
+                                  ),
+                          )
                         ],
                       ),
                     ),

@@ -4,6 +4,7 @@ class MyColors {
   static const black = Color(0xff15202B);
   static const deepBlue = Color(0xff16003B);
   static const grey = Color(0xff413F42);
+  static const white = Color(0xffFFFFFF);
 
   static const List<Color> challengeColors = [
     Color(0xFFB497D6),

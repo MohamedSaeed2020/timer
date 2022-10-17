@@ -20,7 +20,7 @@ class ChallengeItem extends StatelessWidget {
     return Card(
       margin: EdgeInsets.symmetric(vertical: SizeConfig.heightMultiplier * 1.2),
       // This function is used to generate random colors from a map of colors
-      color: ColorGenerator().generatecolor(index),
+      color: ColorGenerator().generateColor(index),
       child: Padding(
         padding: EdgeInsets.symmetric(
           vertical: SizeConfig.heightMultiplier * 2,
