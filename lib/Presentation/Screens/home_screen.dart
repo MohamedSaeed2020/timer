@@ -37,9 +37,9 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    log('HomeScreen build');
-
     return Consumer<HomeProvider>(builder: (context, provider, _) {
+      log('HomeScreen build');
+
       return SafeArea(
         child: Scaffold(
           body: Column(

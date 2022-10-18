@@ -54,17 +54,13 @@ class HomeProvider with ChangeNotifier {
 
     final int seconds = _countDownDuration.inSeconds - 1;
     if (seconds < 0) {
-      _timer!.cancel();
-      isRunning = false;
-      HiveHelper().savePrimitives('isRunning', false);
-      _countDownDuration = Duration(days: challengeDays);
-      _days = _countDownDuration.inDays.toString().padLeft(2, '0');
       Challenge challenge = Challenge(
         finishingDate: DateTime.now().toString(),
         challengeDays: challengeDays,
       );
       HiveHelper().saveChallenge(challenge);
       MyAwesomeDialog.buildAwesomeDialog(context, challengeDays);
+      cancelTimer();
     } else {
       _countDownDuration = Duration(seconds: seconds);
       // I used this method so the they can be written in two digits (02 instead of 2).
@@ -75,9 +71,8 @@ class HomeProvider with ChangeNotifier {
           _countDownDuration.inMinutes.remainder(60).toString().padLeft(2, '0');
       _seconds =
           _countDownDuration.inSeconds.remainder(60).toString().padLeft(2, '0');
+      notifyListeners();
     }
-
-    notifyListeners();
   }
 
   void cancelTimer() {
@@ -88,6 +83,7 @@ class HomeProvider with ChangeNotifier {
     _minutes = "00";
     _seconds = "00";
     isRunning = false;
+    HiveHelper().savePrimitives('isRunning', false);
     notifyListeners();
   }
 

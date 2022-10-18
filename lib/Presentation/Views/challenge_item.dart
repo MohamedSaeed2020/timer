@@ -1,3 +1,4 @@
+
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:timer/Config/size.dart';
@@ -17,6 +18,7 @@ class ChallengeItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
     return Card(
       margin: EdgeInsets.symmetric(vertical: SizeConfig.heightMultiplier * 1.2),
       // This function is used to generate random colors from a map of colors
